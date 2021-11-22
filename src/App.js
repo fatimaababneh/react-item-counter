@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Items from './Component/Items';
 import './App.css';
 
-function App() {
+class App extends Component {
+  constructor(){
+  super();
+this.state={
+  data:0
+  }}
+    totaladd1=()=>{
+    this.setState({data: this.state.data+1})
+    }
+    totalsub1=()=>{
+    if(this.state.data)
+    this.setState({data: this.state.data-1})
+    }
+    
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Items total={this.state.data} sum={this.totaladd1} sub={this.totalsub1}/>
     </div>
-  );
+        );
+  }
 }
 
 export default App;
